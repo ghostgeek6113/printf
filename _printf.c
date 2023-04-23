@@ -14,14 +14,13 @@ int _printf(const char *format, ...)
 	int flags, width, precision, size, buffer_index = 0;
 	char buffer[BUFF_SIZE];
 	va_list list;
-	
+
 	if (format == NULL)
 		return (-1);
 	va_start(list, format);
-
 	for (i = 0; format && format[i] != '\0\; i++)
 	{
-		if (format[i] != '%')
+		if (format[i] != ' % ')
 		{
 			buffer[buffer_index++] = format[i];
 			if (buffer_index == BUFF_SIZE)
@@ -49,10 +48,10 @@ int _printf(const char *format, ...)
 }
 
 /**
- * print_buffer - Prints the contents of the buffer if it exist
- * @buffer: Array of chars
- * @buff_ind: Index at which to add next char, represents the length.
- */
+* print_buffer - Prints the contents of the buffer if it exist
+* @buffer: Array of chars
+* @buff_ind: Index at which to add next char, represents the length.
+*/
 
 void print_buffer(char buffer[], int *buff_ind)
 {
